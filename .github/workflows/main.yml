@@ -1,25 +1,25 @@
 name: Serveo SSH VPS
 
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
-  ssh-vps:
+  serveo-vps:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install OpenSSH server
-      run: sudo apt update && sudo apt install -y openssh-server
-
-    - name: Set SSH password for runner
-      run: echo "runneradmin:P@ssw0rd!" | sudo chpasswd
-
-    - name: Allow root login and password auth
+    - name: Install and configure SSH
       run: |
+        sudo apt update && sudo apt install -y openssh-server
+        echo "runneradmin:P@ssw0rd!" | sudo chpasswd
         sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
         sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
         sudo systemctl restart ssh
 
-    - name: Connect to Serveo (create tunnel)
+    - name: Start Serveo tunnel and keep alive
       run: |
+        echo "Starting SSH tunnel with Serveo..."
         ssh -o StrictHostKeyChecking=no -R 2222:localhost:22 serveo.net &
-        sleep 5
+        echo "Tunnel should now be active. Access it with:"
+        echo "ssh runneradmin@serveo.net -p 2222"
+        echo "Keeping the job alive for 6 hours..."
+        sleep 21600  # 6 hours
