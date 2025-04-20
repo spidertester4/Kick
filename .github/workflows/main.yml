@@ -1,4 +1,4 @@
-name: Serveo SSH VPS
+name: Serveo SSH VPSa
 
 on: [workflow_dispatch]
 
