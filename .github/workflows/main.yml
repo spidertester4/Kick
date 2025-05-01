@@ -1,25 +1,19 @@
-name: Serveo SSH VPSa
+name: Run Message Sender
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:  # Run manually from GitHub
 
 jobs:
-  serveo-vps:
+  run-script:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Install and configure SSH
-      run: |
-        sudo apt update && sudo apt install -y openssh-server
-        echo "runneradmin:P@ssw0rd!" | sudo chpasswd
-        sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-        sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-        sudo systemctl restart ssh
-
-    - name: Start Serveo tunnel and keep alive
-      run: |
-        echo "Starting SSH tunnel with Serveo..."
-        ssh -o StrictHostKeyChecking=no -R 2222:localhost:22 serveo.net &
-        echo "Tunnel should now be active. Access it with:"
-        echo "ssh runneradmin@serveo.net -p 2222"
-        echo "Keeping the job alive for 6 hours..."
-        sleep 21600  # 6 hours
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    - name: Install dependencies
+      run: pip install requests
+    - name: Run the script
+      run: python main.py
