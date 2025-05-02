@@ -8,7 +8,7 @@ headers = {
 }
 data = {"content":"[emote:39268:HYPERCLAPH]", "type":"message"}
 
-for i in range(60):  # 3 hours = 180 minutes
+for i in range(120):  # 3 hours = 180 minutes
     res = requests.post(url, json=data, headers=headers)
     print(f"[{i+1}/180] Status: {res.status_code}")
     time.sleep(60)
