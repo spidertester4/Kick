@@ -16,4 +16,4 @@ jobs:
     - name: Install dependencies
       run: pip install requests
     - name: Run the script
-      run: python main.py
+      run: python m3jza_yassor.py
