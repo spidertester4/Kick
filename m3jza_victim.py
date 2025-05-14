@@ -14,8 +14,7 @@ emotes = [
     "[emote:37242:catblobDan]",
     "[emote:39258:coffinPls]",
     "[emote:39268:HYPERCLAPH]",
-    "!points",
-    "!xp"
+    "!points"
 ]
 
 for i in range(180):  # 3 hours = 180 minutes
