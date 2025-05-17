@@ -1,4 +1,4 @@
-name: Victim k1krm
+name: Victim momenco
 
 on:
   workflow_dispatch:  # Run manually from GitHub
@@ -16,4 +16,4 @@ jobs:
     - name: Install dependencies
       run: pip install requests
     - name: Run the script
-      run: python victim_k1krm.py
+      run: python victim_momenco.py
