@@ -17,9 +17,9 @@ emotes = [
     "!points"
 ]
 
-for i in range(180):  # 3 hours = 180 minutes
+for i in range(60):  # 3 hours = 180 minutes
     random_emote = random.choice(emotes)
     data = {"content": random_emote, "type": "message"}
     res = requests.post(url, json=data, headers=headers)
     print(f"[{i+1}/180] Sent: {random_emote} | Status: {res.status_code}")
-    time.sleep(120)
+    time.sleep(180)
