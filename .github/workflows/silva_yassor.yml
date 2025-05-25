@@ -1,4 +1,4 @@
-name: 1revo victim
+name: silva yassor
 
 on:
   workflow_dispatch:  # Run manually from GitHub
@@ -16,4 +16,4 @@ jobs:
     - name: Install dependencies
       run: pip install requests
     - name: Run the script
-      run: python 1revo_victim.py
+      run: python silva_yassor.py
