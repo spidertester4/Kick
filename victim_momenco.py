@@ -18,9 +18,23 @@ emotes = [
     "!xp"
 ]
 
-for i in range(60):  # 3 hours = 180 minutes
+num_iterations = 90
+
+# Loop to send messages
+for i in range(num_iterations):
+    # Randomly select an emote or command from the list
     random_emote = random.choice(emotes)
+
+    # Prepare the data payload for the POST request
     data = {"content": random_emote, "type": "message"}
+
+    # Send the POST request to the Kick.com API
     res = requests.post(url, json=data, headers=headers)
-    print(f"[{i+1}/180] Sent: {random_emote} | Status: {res.status_code}")
-    time.sleep(180)
+
+    # Print the status of the sent message
+    print(f"[{i+1}/{num_iterations}] Sent: {random_emote} | Status: {res.status_code}")
+
+    # Wait for 120 seconds (2 minutes) before the next iteration
+    time.sleep(120)
+
+print("Script finished after 3 hours.")
