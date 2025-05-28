@@ -19,8 +19,9 @@ emotes = [
     "جي جي",
     "لعيب",
     "اسطوره",
-    "ملك الببجي",
-    "!level"
+    "!level",
+    "كفو",
+    "GG"
 ]
 
 # Calculate the number of iterations needed for 3 hours
