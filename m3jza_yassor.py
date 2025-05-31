@@ -15,7 +15,15 @@ emotes = [
     "[emote:39258:coffinPls]",
     "[emote:39268:HYPERCLAPH]",
     "!points",
-    "!level"
+    "!level",
+    "اسطوره",
+    "كفو",
+    "اذكروا الله",
+    "اللهم صلى وسلم وبارك علي سيدنا محمد",
+    "كفووووووووو",
+    "اسطورة",
+    "سبحان الله وبحمده سبحان الله العظيم",
+    "الله اكبر"
 ]
 
 # Calculate the number of iterations needed for 3 hours
