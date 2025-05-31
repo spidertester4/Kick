@@ -28,7 +28,7 @@ emotes = [
     "الله اكبر"
 ]
 
-num_iterations = 121
+num_iterations = 90
 
 # Loop to send messages
 for i in range(num_iterations):
@@ -45,6 +45,6 @@ for i in range(num_iterations):
     print(f"[{i+1}/{num_iterations}] Sent: {random_emote} | Status: {res.status_code}")
 
     # Wait for 120 seconds (2 minutes) before the next iteration
-    time.sleep(45)
+    time.sleep(120)
 
 print("Script finished after 3 hours.")
